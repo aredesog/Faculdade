@@ -1,17 +1,29 @@
-# 📚 Repositório Acadêmico
+# AEDs-I
 
-Este repositório reúne projetos, trabalhos e exercícios desenvolvidos ao longo da minha trajetória acadêmica.  
-O conteúdo está organizado por **disciplinas**, cada uma em sua própria **branch**, facilitando a navegação e o estudo.
+Repositório dos meus exercícios e projetos da disciplina de **Algoritmos e Estruturas de Dados I (AEDs I)**. Aqui reúno diversos programas em C++ focados em lógica, vetores, estruturas básicas e problemas típicos de aula.
 
 ---
 
-## 📁 Disciplinas
+## 🗂 Conteúdo
 
-Cada disciplina possui uma branch específica.  
-Clique no nome da disciplina para acessar o conteúdo.
+Este repositório contém arquivos como:
 
-| Período | Disciplina | Tecnologias |
-|--------|------------|-------------|
-| 1° | AEDS I | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="25"/> |
-| 2° | AEDS II | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="25"/> |
-| 3° | Programação Funcional | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg" width="25"/> |
+- `Soma e Subtração.cpp` — operações matemáticas simples  
+- `Altura.cpp` — cálculo ou manipulação de alturas  
+- `Encontrar valor no vetor.cpp` — busca em vetores  
+- `Média das alturas com Vetores.cpp` — cálculo de média com vetores  
+- `Leitura das Formas Geométricas.cpp` — tratamento de diferentes formas geométricas  
+- `Triângulo.cpp` — lógica envolvendo triângulos  
+- `Tentaiva de Senha.cpp` — simulação de verificação de senha  
+- `Registro.cpp` — manipulação de registros ou estrutura semelhante  
+- Outros arquivos de listas de exercícios, provas, etc.
+
+---
+
+## 🎯 Objetivo
+
+- Consolidar conceitos básicos de programação com C++  
+- Praticar algoritmos fundamentais: vetores, loops, condicionais, leitura/escrita de dados  
+- Desenvolver habilidades para resolver problemas de lógica computacional  
+
+
