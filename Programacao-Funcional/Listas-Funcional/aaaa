@@ -1,0 +1,206 @@
+-- Lista 6 - Recursão
+-- João Pedro Pereira de Freitas
+
+-- 1) Fatorial
+fatorial :: Int -> Int
+fatorial 0 = 1
+fatorial n = n * fatorial (n - 1)
+
+-- 2) Fibonacci
+fibonacci :: Int -> Int
+fibonacci 0 = 0
+fibonacci 1 = 1
+fibonacci n = fibonacci (n - 1) + fibonacci (n - 2)
+
+-- 3) Inverter lista sem reverse
+inverte :: [a] -> [a]
+inverte [] = []
+inverte (x:xs) = inverte xs ++ [x]
+
+-- 4) Máximo da lista
+maximo :: Ord a => [a] -> a
+maximo [x] = x
+maximo (x:xs) = max x (maximo xs)
+
+-- 5) Elementos repetidos e ocorrências
+nrepetidos :: Eq a => [a] -> [(a, Int)]
+nrepetidos [] = []
+nrepetidos (x:xs)
+  | count > 1 = (x, count) : nrepetidos resto
+  | otherwise = nrepetidos resto
+  where
+    count = 1 + length (filter (== x) xs)
+    resto = filter (/= x) xs
+
+-- 6) Conta quantos diferentes de um número
+contaQuantosDiferentes :: [Int] -> Int -> Int
+contaQuantosDiferentes lista n =
+  length (filter (/= n) lista)
+
+-- 7) Separar ímpares e pares
+separa :: [Int] -> ([Int],[Int])
+separa [] = ([],[])
+separa (x:xs)
+  | odd x     = (x:i, p)
+  | otherwise = (i, x:p)
+  where
+    (i,p) = separa xs
+
+-- 8) Conta ocorrência de um caractere
+conta :: String -> Char -> Int
+conta str c =
+  length (filter (== c) str)
+
+-- 9) Remove repetidos de lista ordenada
+purifica :: [Int] -> [Int]
+purifica [] = []
+purifica [x] = [x]
+purifica (x:y:xs)
+  | x == y    = purifica (y:xs)
+  | otherwise = x : purifica (y:xs)
+
+
+-- Lista 7 - Funções de Alta Ordem
+-- João Pedro Pereira de Freitas
+
+-- 1) Reescrita de list comprehension
+lc :: (a -> b) -> (a -> Bool) -> [a] -> [b]
+lc f p xs = map f (filter p xs)
+
+-- 2) Prolifera inteiros
+proliferaInt :: [Int] -> [Int]
+proliferaInt =
+  foldr (\x acc -> replicate x x ++ acc) []
+
+-- 3) Converte lista de dígitos em inteiro
+dec2int :: [Int] -> Int
+dec2int =
+  foldl (\acc x -> acc * 10 + x) 0
+
+-- 4) Cubos dos pares até n
+evenCubes :: Int -> [Int]
+evenCubes n =
+  map (^3) (filter even [1..n])
+
+-- 5) Separar ímpares e pares
+separa :: [Int] -> ([Int],[Int])
+separa xs =
+  (filter odd xs, filter even xs)
+
+-- 6) União sem repetição
+uniao :: [Int] -> [Int] -> [Int]
+uniao a b =
+  foldr (\x acc -> if x `elem` acc then acc else x:acc) b a
+
+-- 7) Conta caractere
+conta :: String -> Char -> Int
+conta xs c =
+  length (filter (== c) xs)
+
+-- 8) Moda da lista
+moda :: Ord a => [a] -> [a]
+moda xs =
+  map fst
+  $ filter ((== m) . snd)
+  $ contagem
+  where
+    contagem =
+      map (\x -> (head x, length x))
+      (group (sort xs))
+    m = maximum (map snd contagem)
+
+-- 9) Base de dados
+base :: Int -> (Int, String, String, Char)
+base x
+ | x == 0 = (1793, "Pedro Paulo", "MESTRE", 'M')
+ | x == 1 = (1797, "Joana Silva Alencar", "MESTRE", 'M')
+ | x == 2 = (1534, "João de Medeiros", "DOUTOR", 'F')
+ | x == 3 = (1267, "Cláudio César de Sá", "DOUTOR", 'M')
+ | x == 4 = (1737, "Paula de Medeiros", "MESTRE", 'F')
+ | x == 5 = (1888, "Rita de Matos", "MESTRE", 'F')
+ | x == 6 = (1698, "Tereza Cristina Andrade", "MESTRE", 'F')
+ | otherwise = (0,"","",'0')
+
+dados :: [(Int,String,String,Char)]
+dados = map base [0..6]
+
+a) numDoutores = length (filter ((=="DOUTOR") . (\(_,_,t,_) -> t)) dados)
+
+b) numMulheres = length (filter ((=='F') . (\(_,_,_,s) -> s)) dados)
+
+c) numMestresMasc =
+  length
+  (filter (\(_,_,t,s) -> t=="MESTRE" && s=='M') dados)
+
+d) maisAntigo =
+  (\(_,n,_,_) -> n)
+  (minimumBy (\(a,_,_,_) (b,_,_,_) -> compare a b) dados)
+
+-- Lista 8 - Tipos Algébricos
+-- João Pedro Pereira de Freitas
+
+-- 1) Nível hierárquico
+data Nivel = Estagiario | Junior | Pleno | Senior
+  deriving (Show, Eq, Ord)
+
+podeAcessar :: Nivel -> Nivel -> Bool
+podeAcessar cracha andar =
+  cracha >= andar
+
+saoDoMesmoTime :: Nivel -> Nivel -> Bool
+saoDoMesmoTime a b =
+  a == b
+
+-- 2) Forma
+data Forma = Circulo Float | Retangulo Float Float
+  deriving (Show)
+
+area :: Forma -> Float
+area (Circulo r) = pi * r^2
+area (Retangulo b h) = b * h
+
+-- 3) Classificação de filmes
+data Classificacao =
+  Livre | DezAnos | DozeAnos | QuatorzeAnos | DezoitoAnos
+  deriving (Show, Eq, Ord)
+
+acessoPermitido :: Classificacao -> Classificacao -> Bool
+acessoPermitido filme idade =
+  filme <= idade
+
+-- 4) Prioridade
+data Prioridade = Baixa | Media | Alta
+  deriving (Show, Eq, Ord)
+
+apenasUrgentes :: [Prioridade] -> [Prioridade]
+apenasUrgentes =
+  filter (> Baixa)
+
+-- 5) Ataques
+data Ataque = Soco | Chute
+  deriving (Show)
+
+dano :: Ataque -> Int
+dano Soco  = 10
+dano Chute = 20
+
+calcularDanoTotal :: [Ataque] -> Int
+calcularDanoTotal =
+  sum . map dano
+
+-- 6) Fatality
+foiFatality :: [Ataque] -> String
+foiFatality ataques =
+  if calcularDanoTotal ataques >= 100
+     then "Game Over"
+     else "You're alive!"
+
+
+nRepetidos :: Eq a => [a] -> a
+nRepetidos [] = []
+nRepetidos lista = (x, count) :
+nRepetidos rest 
+    where
+        x = head lista
+        count = lenght (takeWhile == (x) lista)
+        rest dropWile (== x) lista

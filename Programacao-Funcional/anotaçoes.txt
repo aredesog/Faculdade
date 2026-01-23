@@ -1,0 +1,60 @@
+
+PROPIEDADES DO HASKEL
+
+    -> ghci é um executavel non terminal de haskel, no qual da para testar 
+ contas basicas de multiplicação, adição, soma e subtração.
+
+    -> é uma linguagem funcional, com o proposito do "o que realizar?"
+
+
+FUNÇÕES (se passa parametros)
+    min (max 2 3) 5 -> 3
+    succ (min (max 2 3 ) 5) -> 4 (sucessor da conta especificada)
+    let dobro x = x in dobro 3 (let é o armazenamento do uma operação aritimetica, que pode ser usada futuramenteo in indica onde ela pode ser usada)
+    
+
+LISTAS
+    As listas em haskell são de um tipo só (str/int...)
+    Umas das formas de adicionar uma outra coisa a uma lista de string, ou inteiro seria o uso de:
+        "Hello" ++ " " ++ ['h','a','s','k','e','l','l'] (no ghci)
+        1:[2,3,4]
+    
+    Funções com Listas -> 
+        -length (Pega o tamanho da lista), -
+        -null (verifica se e nula)
+        -reverse (inverte e a lista)
+        -take (pega um elemento da lista)
+        -drop (Tira ate certa posição da,lista)
+        -maximum (pega o maximo da lista)
+        -minimum (pega o minimo da lista)
+        -sum (SOma a lista)
+        -product (Da o produto da lista)
+        -x elem (Verifica se tem na lista)
+        -zip (Junta duas listas)
+
+    [1..20] -> Cria a lista de 1 a 20
+    ['a'..'z'] -> De A a Z
+    [2,9..38] -> [2,9,16,23,30,37] Determina o intervalo a ser seguido em certa lista
+    take 10[2,4..] -> Teoricamente cria uma lista infinita, take limita ao numero de coisas na lista
+    take 10 (cycle [1,2,3]) -> Repete a lista ate dar 10 valores
+    take 12 (cycle "LOL") -> repete a lista em ate 12 algarismos
+
+TUPLAS
+    A tupla tem tamamnho fixo, diferente das listas
+    Ela pode agrupar valores diferentes (str, int, float) (3,"Ana")::(int,str)
+    ponto::(int,int)
+    ponto = (10,25)
+    item::(str,double)
+    item = ("Chave",49.9)
+    As tuplas vao entre parenteses
+
+COMPREENSAO DE LISTAS
+    mapeamento - cria novos valores com base em uma lista
+    filtragem - filtra valores com base me uma lista
+
+    Estrutura: [*expressao* | *geradores* ,*filtros* ] (saida por elemento, x <- lista, x > 0)
+    testeInicial lista = [1| x <- lista ]
+    
+
+FUNÇÕES DE ALTA ORDEM
+:t (+) le o tipo da função ultilizada no ghci
