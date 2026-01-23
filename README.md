@@ -1,17 +1,20 @@
-# 📚 Repositório Acadêmico
+# 📚 Repositório Acadêmico 📚
 
-Este repositório reúne projetos, trabalhos e exercícios desenvolvidos ao longo da minha trajetória acadêmica.  
-O conteúdo está organizado por **disciplinas**, cada uma em sua própria **branch**, facilitando a navegação e o estudo.
+Este repositório contém todos os projetos, trabalhos e exercícios desenvolvidos durante minha formação acadêmica em **Ciência da Computação**.  
+O conteúdo está organizado por **disciplinas**, cada uma em sua própria **branch**.
 
 ---
 
-## 📁 Disciplinas
+## 📄 Disciplinas
 
-Cada disciplina possui uma branch específica.  
-Clique no nome da disciplina para acessar o conteúdo.
+Cada disciplina possui sua própria branch para melhor organização.  
+Clique no nome da disciplina para acessar o conteúdo correspondente.
 
 | Período | Disciplina | Tecnologias |
 |--------|------------|-------------|
-| 1° | AEDS I | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="25"/> |
-| 2° | AEDS II | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="25"/> |
-| 3° | Programação Funcional | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg" width="25"/> |
+| 1° | [AEDS I](https://github.com/aredesog/Faculdade/tree/aeds-1) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="28"/> |
+| 2° | [AEDS II](https://github.com/aredesog/Faculdade/tree/aeds-2) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="28"/> |
+| 3° | [AEDS III](https://github.com/aredesog/Faculdade/tree/aeds-3) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="28"/> |
+| 3° | [POO](https://github.com/aredesog/Faculdade/tree/poo) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="28"/> |
+| 3° | [PROLOG](https://github.com/aredesog/Faculdade/tree/prolog) | 🧠 PROLOG |
+| 3° | [FUNCIONAL](https://github.com/aredesog/Faculdade/tree/funcional) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg" width="28"/> |
