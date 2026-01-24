@@ -21,6 +21,9 @@ Clique no nome da disciplina para acessar o conteúdo correspondente.
 ---
 
 git branch ->  Ver branchs
+
 git checkout (nome) -> acessar branch
+
 git checkout main -> retorna pra main
+
 git checkout -b (nome) -> cria uma nova branch
