@@ -1,17 +1,34 @@
-# 📚 Repositório Acadêmico
+# 📚 POO Learning
 
-Este repositório reúne projetos, trabalhos e exercícios desenvolvidos ao longo da minha trajetória acadêmica.  
-O conteúdo está organizado por **disciplinas**, cada uma em sua própria **branch**, facilitando a navegação e o estudo.
+Repositório dedicado ao estudo e prática de **Programação Orientada a Objetos (POO)**.
+Aqui estão implementações, exemplos e exercícios utilizados para compreender os principais conceitos do paradigma orientado a objetos.
 
----
+## 🚀 Objetivo
 
-## 📁 Disciplinas
+Este repositório tem como objetivo consolidar conhecimentos em POO através da prática, explorando conceitos fundamentais utilizados no desenvolvimento de software.
 
-Cada disciplina possui uma branch específica.  
-Clique no nome da disciplina para acessar o conteúdo.
+## 🧠 Conceitos abordados
 
-| Período | Disciplina | Tecnologias |
-|--------|------------|-------------|
-| 1° | AEDS I | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="25"/> |
-| 2° | AEDS II | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="25"/> |
-| 3° | Programação Funcional | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg" width="25"/> |
+* Classes e Objetos
+* Encapsulamento
+* Herança
+* Polimorfismo
+* Abstração
+* Métodos e Atributos
+* Construtores
+* Relacionamentos entre classes
+
+## 💻 Tecnologias utilizadas
+
+* Linguagem de programação (ex: Java / Python / C++)
+* Programação Orientada a Objetos
+
+
+## 🎯 Objetivo de aprendizado
+
+* Desenvolver pensamento orientado a objetos
+* Praticar modelagem de classes
+* Aplicar conceitos de reutilização de código
+* Melhorar a organização e estrutura de programas
+
+✍️ Desenvolvido para fins de estudo.
