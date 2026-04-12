@@ -19,19 +19,22 @@ Na sintaxe Prolog:
     Disjunção (A ; B)
     Condicional (A :- B)
 
-    TERMOS
-
-
 */
 
 /* fatos */
+
 pai(joao, joaquim).
 pai(joao, lucas).
 pai(pedro, silvia).
 pai(joaquim, bruno).
+
 mae(maria,joaquim).
 mae(maria,lucas).
 mae(laura, silvia).
 mae(silvia, bruno).
-/*regras*/
+
+/*regras* /
+
 esposa(X,Y) :- pai(Y,Z),mae(X,Z).
+avo(A,C) :- pai(A,B), pai(B,C).
+avo(A,C) :- pai(A,B), mae(B,C).
