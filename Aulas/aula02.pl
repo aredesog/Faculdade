@@ -38,3 +38,8 @@ mae(silvia, bruno).
 esposa(X,Y) :- pai(Y,Z),mae(X,Z).
 avo(A,C) :- pai(A,B), pai(B,C).
 avo(A,C) :- pai(A,B), mae(B,C).
+
+antecessor(X,Y) :- pai(X,Y).
+antecessor(X,Y) :- mae(X,Y).
+antecessor(X,Y) :- pai(X,Z), antecessor(Z,Y).
+antecessor(X,Y) :- mae(X,Z), antecessor(Z,Y).
