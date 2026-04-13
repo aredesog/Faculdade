@@ -20,6 +20,13 @@ troca([X|Y], A, B, [X|R]) :- X \= A,
     troca(Y, A, B, R).
 
 /*EX-4 - potencia */
-potencia([], _).
-potencia([])
+potencia([], [[]]).
+potencia([H|T], P) :-
+    potencia(T, PT),
+    adiciona(H, PT, P1),
+    append(P1, PT, P).
+
+adiciona(_, [], []).
+adiciona(H, [X|Xs], [[H|X]|Ys]) :-
+    adiciona(H, Xs, Ys).
 
