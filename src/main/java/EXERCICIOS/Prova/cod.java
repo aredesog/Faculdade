@@ -10,6 +10,10 @@ public class cod { // Atributos privados (encapsulamento)
         this.saldo = saldoInicial;     }          
         
     // Métodos públicos para acessar e modificar (getters/setters)     
+    public void setSaldo(double saldoInicial){
+        this.saldo = saldo;
+    }
+
     public String getNumero() {         
         return numero;     }          
             
