@@ -47,3 +47,4 @@ mapear_frequencias([], _, []).
 mapear_frequencias([Tam-Sub | T1], ListaTans, [Freq-Sub | T2]) :-
     contar_ocorrido(Tam, ListaTans, Freq),
     mapear_frequencias(T1, ListaTans, T2).
+     
