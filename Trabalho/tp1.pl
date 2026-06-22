@@ -29,3 +29,7 @@ passagem([Par|Resto], [Par|RestoPassagem]) :-
 remover_tamanhos([], []).
 remover_tamanhos([[_Tamanho, Sublista] | Resto], [Sublista | RestoSemTamanhos]) :-
     remover_tamanhos(Resto, RestoSemTamanhos).
+
+
+'ATIVIDADE 2 - B: '
+
