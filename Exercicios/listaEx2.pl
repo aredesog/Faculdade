@@ -1,6 +1,6 @@
 % Lista de Exercicios PROLOG
 
-% 1
+% 1 -CONSULTA
 
 '''
 forall - para cada X que satisfaz a condicao
@@ -18,7 +18,7 @@ maplist - aplica uym predicado a cada elemento
 10: 11: 12: 13: 14: 15: 16: 17: 18: 19: 20:
 
 
-% 2
+% 2 - RESULTADO
 
 a:-a(0).
 a(X):- X > 10,!.
@@ -27,7 +27,7 @@ a(X):- write(X),write(’ ’), X1 is X+1,a(X1).
 
 0 1 2 3 4 5 6 7 8 9 10
 
-% 3 
+% 3 - PIRAMIDE
 
 wN(0):-write(0),!.
 wN(N):-write(N),N1 is N-1, wN(N1),write(N).
@@ -54,7 +54,7 @@ xxx(3):
 xxx(3) terminou
 '''
 
-% 4
+% 4 - ACUMULADOR DE EXPOENTE
 
 % caso base: expoente 0, devolve o acumulador
 pot(_, 0, Acc, Acc).
@@ -79,7 +79,7 @@ pot(3, 1, 27, Result)    → 27*3=81, chama pot(3, 0, 81, Result)
 pot(3, 0, 81, Result)    → caso base! devolve Result = 81
 '''
 
-% 5 
+% 5 - RESULTADO
 
 d(0).
 d(1).
@@ -87,7 +87,7 @@ d(1).
 
 L = [[0,0], [0,1], [1,0], [1,1]]
 
-% 6 
+% 6 - PALINDROMO
 
 palindromo([]).
 palindromo([_]).
@@ -103,7 +103,7 @@ palindromo([H|T]) :-
     Meio = [b,b].
     '''
 
-% 7
+% 7 - METADE IGUAL
 
 metIguais(L) :-
     append(Metade, Metade, L).
@@ -116,5 +116,5 @@ append(Metade, Metade, [a,b,c,a,b,c])
 → tenta Metade=[a,b,c] → [a,b,c]+[a,b,c] = [a,b,c,a,b,c] ✓ → sucesso!
 '''  
 
-% 8 
+% 8 - INSERE ORDENADA
 
