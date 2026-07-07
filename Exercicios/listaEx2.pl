@@ -1,6 +1,8 @@
 % Lista de Exercicios PROLOG
 
-% 1 -CONSULTA
+
+
+
 
 '''
 forall - para cada X que satisfaz a condicao
@@ -8,6 +10,7 @@ between - gera numero entre
 findall - colota os valores que satisfazem a condicao
 maplist - aplica uym predicado a cada elemento
 '''
+% 1 -CONSULTA
 
 ?- forall(member(X,[1,2,3]),write(X)).
 ?- forall(between(1,5,I),(write(I*I),write(' '))).
@@ -27,7 +30,7 @@ a(X):- write(X),write(’ ’), X1 is X+1,a(X1).
 
 0 1 2 3 4 5 6 7 8 9 10
 
-% 3 - PIRAMIDE
+% 3 - PIRAMIDE em pé
 
 wN(0):-write(0),!.
 wN(N):-write(N),N1 is N-1, wN(N1),write(N).
@@ -37,22 +40,6 @@ wN(N):-write(N),N1 is N-1, wN(N1),write(N).
 xxx(0) :- nl, wN(0), nl.
 xxx(N) :- N > 0, N1 is N-1, xxx(N1), wN(N), nl.
 
-'''
-xxx(3):
-  N=3 > 0, N1=2, chama xxx(2)...
-    xxx(2):
-      N=2 > 0, N1=1, chama xxx(1)...
-        xxx(1):
-          N=1 > 0, N1=0, chama xxx(0)...
-            xxx(0):
-              nl, wN(0) → imprime "0", nl
-          wN(1) → imprime "101", nl
-        xxx(1) terminou
-      wN(2) → imprime "21012", nl
-    xxx(2) terminou
-  wN(3) → imprime "3210123", nl
-xxx(3) terminou
-'''
 
 % 4 - ACUMULADOR DE EXPOENTE
 
@@ -70,14 +57,6 @@ pot(X, Y, Acc, Result) :-
 pot(X, Y, Result) :-
     pot(X, Y, 1, Result).
 
-'''
-pot(3, 4, Result)        → wrapper, chama pot(3, 4, 1, Result)
-pot(3, 4, 1, Result)     → 1*3=3,   chama pot(3, 3, 3, Result)
-pot(3, 3, 3, Result)     → 3*3=9,   chama pot(3, 2, 9, Result)
-pot(3, 2, 9, Result)     → 9*3=27,  chama pot(3, 1, 27, Result)
-pot(3, 1, 27, Result)    → 27*3=81, chama pot(3, 0, 81, Result)
-pot(3, 0, 81, Result)    → caso base! devolve Result = 81
-'''
 
 % 5 - RESULTADO
 
@@ -95,26 +74,56 @@ palindromo([H|T]) :-
     append(Meio, [H], T), 
     palindromo(Meio).
 
-    '''
-    qual lista Meio, que quando juntada com [a], forma [b,b,a]?" —
-    ou seja, ele remove o último elemento a e devolve o Meio.
-
-    ?- append(Meio, [a], [b,b,a]).
-    Meio = [b,b].
-    '''
-
 % 7 - METADE IGUAL
 
 metIguais(L) :-
     append(Metade, Metade, L).
 
-'''
-append(Metade, Metade, [a,b,c,a,b,c])
-→ tenta Metade=[] → [] + [] = [] ≠ [a,b,c,a,b,c] → falha
-→ tenta Metade=[a] → [a]+[a] = [a,a] ≠ [a,b,c,a,b,c] → falha
-→ tenta Metade=[a,b] → falha
-→ tenta Metade=[a,b,c] → [a,b,c]+[a,b,c] = [a,b,c,a,b,c] ✓ → sucesso!
-'''  
 
-% 8 - INSERE ORDENADA
+% 8 - INSERE ORDENADA/3
 
+insOrd(X, [], [X]).
+insOrd(X, [H|T], [X,H|T]) :- X <= H.
+insOrd(X, [H|T], [H|R]) :- X > H, insOrd(X, T, R).
+
+% Exercício 9 - PARTICIONA uma lista em duas
+particiona([], [], []).
+particiona([X], [X], []).
+particiona([X,Y|T], [X|L1], [Y|L2]) :- particiona(T, L1, L2).
+
+% Exercício 10 - merge/3 junta ord em um 3 ord
+merge([], L, L).
+merge(L, [], L).
+merge([H1|T1], [H2|T2], [H1|R]) :- H1 <= H2, merge(T1, [H2|T2], R).
+merge([H1|T1], [H2|T2], [H2|R]) :- H1 > H2, merge([H1|T1], T2, R).
+
+
+'''JARRO/3'''
+% CENÁRIO A: Cabe tudo (O de 8L esvazia e vira 0)
+oper(despejar_8_em_5, j(X, Y, Z), j(0, NovoY, Z)) :-
+    X > 0,              % Origem tem que ter água
+    Y < 5,              % Destino não pode estar cheio
+    X + Y <= 5,         % A soma cabe no destino
+    NovoY is X + Y.     % Destino recebe tudo
+
+% CENÁRIO B: Transborda (O de 5L enche até a boca e vira 5)
+oper(despejar_8_em_5, j(X, Y, Z), j(NovoX, 5, Z)) :-
+    X > 0,              % Origem tem que ter água
+    Y < 5,              % Destino não pode estar cheio
+    X + Y > 5,          % A soma estoura o destino
+    NovoX is X - (5 - Y). % Origem fica com a sobra
+
+'''JARRO/2'''
+% CENÁRIO A: Cabe tudo (O Jarro 1 esvazia e vira 0)
+transforma('transferir de 1 para 2', [X, Y], [0, NovoY]) :-
+    X > 0,              % Jarro 1 tem água
+    Y < 4,              % Jarro 2 não está cheio
+    X + Y <= 4,         % Cabe tudo dentro do Jarro 2
+    NovoY is X + Y.
+
+% CENÁRIO B: Transborda (O Jarro 2 enche até a boca e vira 4)
+transforma('transferir de 1 para 2', [X, Y], [NovoX, 4]) :-
+    X > 0,              % Jarro 1 tem água
+    Y < 4,              % Jarro 2 não está cheio
+    X + Y > 4,          % Estoura a capacidade do Jarro 2
+    NovoX is X - (4 - Y). % Jarro 1 fica com a sobra

@@ -1,5 +1,5 @@
 '''
-Qual é o resultado da seguinte consulta prolog?
+1 - Qual é o resultado da seguinte consulta prolog?
 '''
 ?- length (A,3), maplist (=('a'),A).
 
@@ -7,9 +7,9 @@ length(A,3) cria uma lista com 3 elementos. maplist(=('a'),A) unifica cada eleme
 Resposta: A = [a,a,a]
 
 '''
-Implementar xxx/3 sem length e maplist:
+2 - Implementar xxx/3 sem length e maplist:
 '''
-prologxxx(0, _, []).
+xxx(0, _, []).
 xxx(N, X, [X|T]) :-
     N > 0,
     N1 is N-1,
@@ -17,7 +17,7 @@ xxx(N, X, [X|T]) :-
 
 
 '''
-Qual o resultado da consulta?
+3 - Qual o resultado da consulta?
 '''
 ap([], L, L).
 ap([A|B], C, [A|D]) :- ap(B, C, D).
@@ -29,7 +29,7 @@ b) Nome do predicado: ultimo elemento
 '''
 
 '''
-Modificar emordem para mostrar só nós intermediários (exceto folhas):
+4 - Modificar emordem para mostrar só nós intermediários (exceto folhas):
 '''
 emordem([]).
 emordem(no(I, E, D)) :-
@@ -39,7 +39,7 @@ emordem(no(I, E, D)) :-
     emordem(D).
 
 '''
-Despejar jarro de 8 litros no de 5:
+5 - Despejar jarro de 8 litros no de 5:
 '''
 
 % caso 1: nao sobra nada no jarro de 8
