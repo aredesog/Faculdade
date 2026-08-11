@@ -18,7 +18,7 @@ Clique no nome da disciplina para acessar o conteúdo correspondente.
 | 3° | [POO](https://github.com/aredesog/Faculdade/tree/POO) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="28"/> |
 | 3° | [PROLOG](https://github.com/aredesog/Faculdade/tree/Prolog) | 🧠 PROLOG |
 | 3° | [FUNCIONAL](https://github.com/aredesog/Faculdade/tree/Funcional) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg" width="28"/> |
-| 4° | [COMPILAODRES](https://github.com/aredesog/Faculdade/tree/Compiladores) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/compiladores/haskell-original.svg" width="28"/> |
+| 4° | [COMPILAODRES](https://github.com/aredesog/Faculdade/tree/Compiladores) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/compiladores/compilador-original.svg" width="28"/> |
 ---
 
 git branch ->  Ver branchs
