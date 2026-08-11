@@ -20,11 +20,3 @@ Clique no nome da disciplina para acessar o conteúdo correspondente.
 | 3° | [FUNCIONAL](https://github.com/aredesog/Faculdade/tree/Funcional) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg" width="28"/> |
 | 4° | [COMPILAODRES](https://github.com/aredesog/Faculdade/tree/Compiladores) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gcc/gcc-original.svg" width="28"/> |
 ---
-
-git branch ->  Ver branchs
-
-git checkout (nome) -> acessar branch
-
-git checkout main -> retorna pra main
-
-git checkout -b (nome) -> cria uma nova branch
