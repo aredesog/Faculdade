@@ -16,7 +16,8 @@ Clique no nome da disciplina para acessar o conteúdo correspondente.
 | 2° | [AEDS II](https://github.com/aredesog/Faculdade/tree/Aeds-2) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="28"/> |
 | 3° | [AEDS-III](https://github.com/aredesog/Faculdade/tree/Aeds3) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="28"/> |
 | 3° | [POO](https://github.com/aredesog/Faculdade/tree/POO) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="28"/> |
-| 3° | [PROLOG](https://github.com/aredesog/Faculdade/tree/Prolog) | 🧠 PROLOG |
+| 3° | [PROLOG](https://github.com/aredesog/Faculdade/tree/Prolog) | <i class="fa-solid fa-owl"></i> |
 | 3° | [FUNCIONAL](https://github.com/aredesog/Faculdade/tree/Funcional) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg" width="28"/> |
 | 4° | [COMPILAODRES](https://github.com/aredesog/Faculdade/tree/Compiladores) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gcc/gcc-original.svg" width="28"/> |
+| 4° | [Gestão](https://github.com/aredesog/Faculdade/tree/Gestao) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" width="28"/> |
 ---
