@@ -1,6 +1,5 @@
-#line 2 "at1.c"
 
-#line 4 "at1.c"
+#line 3 "lex.yy.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -499,7 +498,7 @@ int yy_flex_debug = 0;
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
 #line 1 "at1.l"
-#line 503 "at1.c"
+#line 502 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -719,7 +718,7 @@ YY_DECL
 #line 6 "at1.l"
 
 
-#line 723 "at1.c"
+#line 722 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -779,127 +778,127 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 8 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 9 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 10 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 12 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 13 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 15 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 16 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 17 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 18 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 20 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 21 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 22 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
 #line 24 "at1.l"
-{printf("%11: operador aritimetico soma\n", yytext);}
+{ printf("%s: operador aritimetico soma\n", yytext); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
 #line 25 "at1.l"
-{printf("%11: operador aritimetico subtracao\n", yytext);}
+{ printf("%s: operador aritimetico subtracao\n", yytext); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
 #line 26 "at1.l"
-{printf("%11: operador aritimetico multiplicacao\n", yytext);}
+{ printf("%s: operador aritimetico multiplicacao\n", yytext); }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
 #line 27 "at1.l"
-{printf("%11: operador aritimetico divisao\n", yytext);}
+{ printf("%s: operador aritimetico divisao\n", yytext); }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
 #line 29 "at1.l"
-{printf("%11s: operador atribuicao\n", yytext);}
+{ printf("%s: operador atribuicao\n", yytext); }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
 #line 30 "at1.l"
-{printf("%11s: operador abre parenteses\n", yytext);}
+{ printf("%s: operador abre parenteses\n", yytext); }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
 #line 31 "at1.l"
-{printf("%11s: operador fecha parenteses\n", yytext);}
+{ printf("%s: operador fecha parenteses\n", yytext); }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
 #line 33 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
 #line 34 "at1.l"
-{printf("%11: palavra reservada\n", yytext);}
+{ printf("%s: palavra reservada\n", yytext); }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
 #line 35 "at1.l"
-{printf("%11: constante logica de verdade\n", yytext);}
+{ printf("%s: constante logica de verdade\n", yytext); }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
 #line 36 "at1.l"
-{printf("%11: constante logica de falsidade\n", yytext);}
+{ printf("%s: constante logica de falsidade\n", yytext); }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
 #line 38 "at1.l"
-{printf("%11: identificador\n", yytext);}
+{ printf("%s: identificador\n", yytext); }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
 #line 39 "at1.l"
-{printf("%11: numero\n", yytext);}
+{ printf("%s: numero\n", yytext); }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
@@ -915,14 +914,14 @@ YY_RULE_SETUP
 case 28:
 YY_RULE_SETUP
 #line 42 "at1.l"
-{printf("%11: simbolo nao reconhecido\n", yytext);}
+{ printf("%s: simbolo nao reconhecido\n", yytext); }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
 #line 44 "at1.l"
 ECHO;
 	YY_BREAK
-#line 926 "at1.c"
+#line 925 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1930,12 +1929,11 @@ void yyfree (void * ptr )
 #line 44 "at1.l"
 
 
-int yywarp(void){
+int yywrap(void) {
     return 1;
 }
 
-
-int main(void){
+int main(void) {
     yylex();
-    return 0 ;
+    return 0;
 }

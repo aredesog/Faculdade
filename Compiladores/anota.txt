@@ -1,3 +1,7 @@
 O arquivo .l é a especificação do analisador léxico usada pelo Flex para gerar código em C.
 Quando eu executo o flex -o X.c X.l ele me da a ferramenta de construção do Compilador:
 Expressão Regular(ER) -> AFN -> AFD -> COD me C
+
+flex at1.l
+gcc lex.yy.c -o at1
+./at1
