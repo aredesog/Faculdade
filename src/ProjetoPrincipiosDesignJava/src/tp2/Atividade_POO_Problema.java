@@ -9,9 +9,9 @@ public class Atividade_POO_Problema {
         Console portatil = new Console("Playstation Portátil", "portatil", 2500);
 
         Loja loja = new Loja();
-        loja.venderConsole(Nitendo);
-        loja.venderConsole(playstation);
-        loja.venderConsole(portatil);
+        loja.venderConsole((IConsole) nintendo);
+        loja.venderConsole((IConsole) playstation);
+        loja.venderConsole((IConsole) portatil);
     }
 }
 
