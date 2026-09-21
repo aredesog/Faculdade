@@ -8,13 +8,10 @@ import java.nio.channels.Channel;
 
 public class ChannelFactory {
 
+
+    //DUVIDA SINCERA: COMO RETORNAR UDP OU TCP AQUI
   public static IChannel create(){
       //retornar um canal UDP ou TCP
-
-      if (){
-
-      }
-
-      return
+      return new TCPChannel();
   }
 }

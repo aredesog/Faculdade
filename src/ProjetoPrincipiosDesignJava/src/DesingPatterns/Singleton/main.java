@@ -11,19 +11,19 @@ class main {
 
     void f() {
         // TODO (4): o que deve ser alterado aqui?
-        Logger log = new Logger();
+        Logger log = Logger.getInstance();
         log.println("Executando f " + log);
     }
 
     void g() {
         // TODO (5): faça a mesma alteração da dica (4) aqui
-        Logger log = new Logger();
+        Logger log = Logger.getInstance();
         log.println("Executando g " + log);
     }
 
     void h() {
         // TODO (6): faça a mesma alteração da dica (4) aqui
-        Logger log = new Logger();
+        Logger log =  Logger.getInstance();
         log.println("Executando h " + log);
     }
 
@@ -32,9 +32,10 @@ class main {
         m.f();
         m.g();
         m.h();
+
         // TODO (7) [extra]: descomente a linha abaixo e rode o programa.
         // Compare o ID impresso aqui com os IDs impressos por f(), g() e h().
-        // System.out.println("Observe que as 3 chamadas executaram no mesmo objeto, com ID: " + Logger.getInstance());
+        System.out.println("Observe que as 3 chamadas executaram no mesmo objeto, com ID: " + Logger.getInstance());
     }
 
 }
