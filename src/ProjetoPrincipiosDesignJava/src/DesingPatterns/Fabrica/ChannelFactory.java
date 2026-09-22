@@ -12,6 +12,6 @@ public class ChannelFactory {
     //DUVIDA SINCERA: COMO RETORNAR UDP OU TCP AQUI
   public static IChannel create(){
       //retornar um canal UDP ou TCP
-      return new TCPChannel();
+      return new TCPChannel(); // Ou "return new UDPChannel();" se quiseres alternar
   }
 }

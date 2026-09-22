@@ -4,19 +4,19 @@ public class main {
 
     void f() {
         // TODO (5): O que deve ser alterado aqui?
-        TCPChannel c = TCPChannel.create();
+        IChannel c = ChannelFactory.create();
         c.connect();
     }
 
     void g() {
         // TODO (6): faça a mesma alteração da dica (5) aqui
-        TCPChannel c = TCPChannel.create();
+        IChannel c = ChannelFactory.create();
         c.connect();
     }
 
     void h() {
         // TODO (7): faça a mesma alteração da dica (5) aqui
-        TCPChannel c = TCPChannel.create();
+        IChannel c = ChannelFactory.create();
         c.connect();
     }
 
