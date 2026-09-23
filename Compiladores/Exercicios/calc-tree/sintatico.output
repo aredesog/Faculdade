@@ -1,0 +1,220 @@
+Terminais sem uso na gramática
+
+    NUMERO
+
+
+Gramática
+
+    0 $accept: linha $end
+
+    1 linha: expressao ENTER
+
+    2 expressao: expressao MAIS expressao
+    3          | expressao MENOS expressao
+    4          | expressao MULT expressao
+    5          | expressao DIV expressao
+    6          | ABRE expressao FECHA
+    7          | T_NUM
+
+
+Terminais, com as regras onde eles aparecem
+
+    $end (0) 0
+    error (256)
+    ENTER (258) 1
+    MAIS (259) 2
+    MENOS (260) 3
+    MULT (261) 4
+    DIV (262) 5
+    NUMERO (263)
+    ABRE (264) 6
+    FECHA (265) 6
+    T_NUM (266) 7
+
+
+Não terminais com as regras onde eles aparecem
+
+    $accept (12)
+        à esquerda: 0
+    linha (13)
+        à esquerda: 1
+        à direita: 0
+    expressao (14)
+        à esquerda: 2 3 4 5 6 7
+        à direita: 1 2 3 4 5 6
+
+
+Estado 0
+
+    0 $accept: • linha $end
+
+    ABRE   deslocar, e ir ao estado 1
+    T_NUM  deslocar, e ir ao estado 2
+
+    linha      ir ao estado 3
+    expressao  ir ao estado 4
+
+
+Estado 1
+
+    6 expressao: ABRE • expressao FECHA
+
+    ABRE   deslocar, e ir ao estado 1
+    T_NUM  deslocar, e ir ao estado 2
+
+    expressao  ir ao estado 5
+
+
+Estado 2
+
+    7 expressao: T_NUM •
+
+    $padrão  reduzir usando a regra 7 (expressao)
+
+
+Estado 3
+
+    0 $accept: linha • $end
+
+    $end  deslocar, e ir ao estado 6
+
+
+Estado 4
+
+    1 linha: expressao • ENTER
+    2 expressao: expressao • MAIS expressao
+    3          | expressao • MENOS expressao
+    4          | expressao • MULT expressao
+    5          | expressao • DIV expressao
+
+    ENTER  deslocar, e ir ao estado 7
+    MAIS   deslocar, e ir ao estado 8
+    MENOS  deslocar, e ir ao estado 9
+    MULT   deslocar, e ir ao estado 10
+    DIV    deslocar, e ir ao estado 11
+
+
+Estado 5
+
+    2 expressao: expressao • MAIS expressao
+    3          | expressao • MENOS expressao
+    4          | expressao • MULT expressao
+    5          | expressao • DIV expressao
+    6          | ABRE expressao • FECHA
+
+    MAIS   deslocar, e ir ao estado 8
+    MENOS  deslocar, e ir ao estado 9
+    MULT   deslocar, e ir ao estado 10
+    DIV    deslocar, e ir ao estado 11
+    FECHA  deslocar, e ir ao estado 12
+
+
+Estado 6
+
+    0 $accept: linha $end •
+
+    $padrão  aceitar
+
+
+Estado 7
+
+    1 linha: expressao ENTER •
+
+    $padrão  reduzir usando a regra 1 (linha)
+
+
+Estado 8
+
+    2 expressao: expressao MAIS • expressao
+
+    ABRE   deslocar, e ir ao estado 1
+    T_NUM  deslocar, e ir ao estado 2
+
+    expressao  ir ao estado 13
+
+
+Estado 9
+
+    3 expressao: expressao MENOS • expressao
+
+    ABRE   deslocar, e ir ao estado 1
+    T_NUM  deslocar, e ir ao estado 2
+
+    expressao  ir ao estado 14
+
+
+Estado 10
+
+    4 expressao: expressao MULT • expressao
+
+    ABRE   deslocar, e ir ao estado 1
+    T_NUM  deslocar, e ir ao estado 2
+
+    expressao  ir ao estado 15
+
+
+Estado 11
+
+    5 expressao: expressao DIV • expressao
+
+    ABRE   deslocar, e ir ao estado 1
+    T_NUM  deslocar, e ir ao estado 2
+
+    expressao  ir ao estado 16
+
+
+Estado 12
+
+    6 expressao: ABRE expressao FECHA •
+
+    $padrão  reduzir usando a regra 6 (expressao)
+
+
+Estado 13
+
+    2 expressao: expressao • MAIS expressao
+    2          | expressao MAIS expressao •
+    3          | expressao • MENOS expressao
+    4          | expressao • MULT expressao
+    5          | expressao • DIV expressao
+
+    MULT  deslocar, e ir ao estado 10
+    DIV   deslocar, e ir ao estado 11
+
+    $padrão  reduzir usando a regra 2 (expressao)
+
+
+Estado 14
+
+    2 expressao: expressao • MAIS expressao
+    3          | expressao • MENOS expressao
+    3          | expressao MENOS expressao •
+    4          | expressao • MULT expressao
+    5          | expressao • DIV expressao
+
+    MULT  deslocar, e ir ao estado 10
+    DIV   deslocar, e ir ao estado 11
+
+    $padrão  reduzir usando a regra 3 (expressao)
+
+
+Estado 15
+
+    2 expressao: expressao • MAIS expressao
+    3          | expressao • MENOS expressao
+    4          | expressao • MULT expressao
+    4          | expressao MULT expressao •
+    5          | expressao • DIV expressao
+
+    $padrão  reduzir usando a regra 4 (expressao)
+
+
+Estado 16
+
+    2 expressao: expressao • MAIS expressao
+    3          | expressao • MENOS expressao
+    4          | expressao • MULT expressao
+    5          | expressao • DIV expressao
+    5          | expressao DIV expressao •
+
+    $padrão  reduzir usando a regra 5 (expressao)

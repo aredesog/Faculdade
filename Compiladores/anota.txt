@@ -5,3 +5,10 @@ Expressão Regular(ER) -> AFN -> AFD -> COD me C
 flex at1.l
 gcc lex.yy.c -o at1
 ./at1
+
+
+O Flex serve para fazer a análise léxica. Ele transforma um texto bruto em pedaços menores chamados tokens 
+(como palavras-chave, números e operadores).O Bison serve para fazer a análise sintática. 
+Ele pega esses tokens gerados pelo Flex e verifica se eles seguem as regras 
+gramaticais da linguagem ou do formato de arquivo.Trabalhando juntos, eles automatizam o trabalho 
+pesado de ler e validar códigos ou dados, gerando códigos eficientes (geralmente em linguagem C) de forma rápida.
