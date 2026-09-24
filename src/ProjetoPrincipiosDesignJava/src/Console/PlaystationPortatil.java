@@ -12,7 +12,7 @@ public class PlaystationPortatil extends Playstation {
 
     @Override
     public String getNome() {
-        return this.PlaystationPortatil.getNome();
+        return null;
     }
 
     @Override

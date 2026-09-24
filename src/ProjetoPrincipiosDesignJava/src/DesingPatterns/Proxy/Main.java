@@ -22,10 +22,16 @@ class Main {
         BookSearch bs = new BookSearch();
         BookSearchProxy pbs = new BookSearchProxy(bs);
 
+        //classe de chache
+        BookSearchCacheProxy cacheProxy = new BookSearchCacheProxy(bs);
+
         // TODO (4): como usar a nova classe de cache junto com o que já existe
         // (bs e pbs), sem remover o comportamento atual? Teste pesquisando o
         // mesmo ISBN duas vezes seguidas e observe a diferença na saída do
         // console entre a primeira e a segunda chamada.
+
+        Book book1 = new  BookSearchCacheProxy(pbs).getBook("1");
+        Book book2 = new BookSearchCacheProxy(bs).getBook("2");
 
     }
 
