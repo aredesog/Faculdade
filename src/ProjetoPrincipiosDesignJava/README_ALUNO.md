@@ -23,13 +23,13 @@ Pré-requisito: **JDK 17 ou superior**.
 Na pasta raiz do projeto, compile:
 
 ```bash
-javac -d out src/projetoprincipiosdesign/*.java
+javac -d out src/Solid/*.java
 ```
 
 Depois execute:
 
 ```bash
-java -cp out projetoprincipiosdesign.Principal.Main
+java -cp out Solid.Principal.Main
 ```
 
 ## Sua missão

@@ -1,7 +1,5 @@
 package DesingPatterns.Singleton;
 
-import projetoprincipiosdesign.Principal.Main;
-
 class main {
 
     void teste() {
