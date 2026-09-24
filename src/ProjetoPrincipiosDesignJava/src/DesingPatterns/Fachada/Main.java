@@ -8,42 +8,9 @@ public class Main {
     // qualquer mudança na forma de inicializar o motor (por exemplo, uma nova
     // etapa obrigatória) precisaria ser repetida em todos eles.
 
-    void iniciarModoHistoria() {
-        SistemaDeGraficos graficos = new SistemaDeGraficos();
-        SistemaDeAudio audio = new SistemaDeAudio();
-        SistemaDeSave save = new SistemaDeSave();
-
-        graficos.inicializar();
-        audio.inicializar();
-        save.carregarProgresso();
-        graficos.carregarTexturas();
-        audio.tocarMusicaTema();
-    }
-
-    void iniciarModoOnline() {
-        SistemaDeGraficos graficos = new SistemaDeGraficos();
-        SistemaDeAudio audio = new SistemaDeAudio();
-        SistemaDeRede rede = new SistemaDeRede();
-
-        graficos.inicializar();
-        audio.inicializar();
-        rede.conectarServidor();
-        graficos.carregarTexturas();
-        audio.tocarMusicaTema();
-    }
-
-    void iniciarModoTreino() {
-        SistemaDeGraficos graficos = new SistemaDeGraficos();
-        SistemaDeAudio audio = new SistemaDeAudio();
-
-        graficos.inicializar();
-        audio.inicializar();
-        graficos.carregarTexturas();
-        audio.tocarMusicaTema();
-    }
 
     public static void main(String[] args) {
-        Main m = new Main();
+        GameFacade m = new GameFacade();
 
         System.out.println("=== Modo História ===");
         m.iniciarModoHistoria();
