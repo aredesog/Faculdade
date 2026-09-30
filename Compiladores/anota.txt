@@ -12,3 +12,6 @@ O Flex serve para fazer a análise léxica. Ele transforma um texto bruto em ped
 Ele pega esses tokens gerados pelo Flex e verifica se eles seguem as regras 
 gramaticais da linguagem ou do formato de arquivo.Trabalhando juntos, eles automatizam o trabalho 
 pesado de ler e validar códigos ou dados, gerando códigos eficientes (geralmente em linguagem C) de forma rápida.
+
+A ferramenta Bison faz a a implementação do sintatico.
+A ferramenta Bison gera o analisador sintático (parser) a partir de uma gramática livre de contexto; o Flex gera o analisador léxico.

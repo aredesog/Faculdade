@@ -1,5 +1,6 @@
 %{
 #include "tree.c"
+#include "calc.h"
 #define YYSTYPE ptno
 #include "sintatico.h"
 #include <stdlib.h>
