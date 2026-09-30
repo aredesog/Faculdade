@@ -55,7 +55,10 @@ F           { return T_F; }
 {numero}        { return T_NUMERO; }
 {espaco}        /* nao faz nada */
 {novalinha}     /* nao faz nada */
-.               { printf("%d: ERRO - SIMBOLO NAO RECONHECIDO: %s\n", yylineno, yytext); exit(1); }
+.               { char msg(100);
+                  sprintf(msg, "Simbolo %s desconhecido", yytext)
+                  yyerror(msg)
+                  }
 
 %%
 

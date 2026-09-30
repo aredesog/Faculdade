@@ -990,14 +990,17 @@ YY_RULE_SETUP
 case 34:
 YY_RULE_SETUP
 #line 58 "lexico.l"
-{ printf("%d: ERRO - SIMBOLO NAO RECONHECIDO: %s\n", yylineno, yytext); exit(1); }
+{ char msg(100);
+                  sprintf(msg, "Simbolo %s desconhecido", yytext)
+                  yyerror(msg)
+                  }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 60 "lexico.l"
+#line 63 "lexico.l"
 ECHO;
 	YY_BREAK
-#line 1001 "lexico.c"
+#line 1004 "lexico.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2014,7 +2017,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 60 "lexico.l"
+#line 63 "lexico.l"
 
 
 int yywrap(void) { return 1; }
