@@ -1,6 +1,7 @@
 %{
 #include "sintatico.h"
 void erro_lexico(char *);
+int nlinha = 1;
 %}
 
 identificador [a-zA-Z]([a-zA-Z]|[0-9])*
@@ -43,14 +44,14 @@ NAO               { return T_NAO; }
 {identificador}   { return T_IDENTIF; }
 {numero}          { return T_NUMERO; }
 {espaco}          {  }
-{novalinha}       {  }
+{novalinha}       { nlinha++; }
 
 .                 { erro_lexico (yytext); }
 %%
 
 
 void erro_lexico(char *s) {
-    fprintf(stderr, "Erro Léxico.\n");
+    fprintf(stderr, "Erro Léxico.%d\n", nlinha);
     fprintf(stderr, "  símbolo %s desconhecido\n\n", s);
     exit(10);
 }

@@ -6,6 +6,7 @@
 int yylex();
 void yyerror(const char *);
 extern FILE *yyin;
+extern int nlinha;
 
 %}
 
@@ -196,7 +197,7 @@ static int yyreport_syntax_error(const yypcontext_t *ctx)
 
     token = yypcontext_token(ctx);
 
-    fprintf(stderr, "Erro de sintaxe.\n");
+    fprintf(stderr, "Erro de sintaxe.%d\n", nlinha);
     fprintf(stderr, "  Símbolo encontrado: %s\n",
             nome_token(token));
 
