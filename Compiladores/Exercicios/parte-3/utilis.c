@@ -40,7 +40,7 @@ int topotab = 0;
 
 void inseresimbolo(tiptab elem){
     int i;
-    for (i = 0; i < topotab && strcmp(elem.nome, tabsimb[i].nome); i--);
+    for (i = topotab - 1; i >= 0 && strcmp(elem.nome, tabsimb[i].nome); i--);
     
     if (i != -1 )
         erro_semantico("Identificador duplicado");
@@ -50,7 +50,7 @@ void inseresimbolo(tiptab elem){
 
 int buscasimbolo(char *nome){
     int i;
-    for (i = topotab ; i >= 0 && strcmp(nome, tabsimb[i].nome) != 0; i--);
+    for (i = topotab - 1; i >= 0 && strcmp(nome, tabsimb[i].nome) != 0; i--);
     if (i == -1)
         erro_semantico("Identificador nao encontrado");
     return i;
