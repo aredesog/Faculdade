@@ -88,14 +88,14 @@ tipo
 lista_variaveis
     : lista_variaveis T_IDENTIF
         {   strcpy(elemtab.nome, atomo);
-            strcpy(elematb.tipo, tipo);
-            strcpy(elematb.end, end);
+            elemtab.tipo = tipo;
+            elemtab.end = contavar;
             inseresimbolo(elemtab);
             contavar++;}
     | T_IDENTIF
         {   strcpy(elemtab.nome, atomo);
-            strcpy(elematb.tipo, tipo);
-            strcpy(elematb.end, end);
+            elemtab.tipo = tipo;
+            elemtab.end = contavar;
             inseresimbolo(elemtab);
             contavar++;}
     ;

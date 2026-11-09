@@ -1267,8 +1267,8 @@ yyreduce:
   case 12: /* lista_variaveis: lista_variaveis T_IDENTIF  */
 #line 90 "sintatico.y"
         {   strcpy(elemtab.nome, atomo);
-            strcpy(elematb.tipo, tipo);
-            strcpy(elematb.end, end);
+            elemtab.tipo = tipo;
+            elemtab.end = contavar;
             inseresimbolo(elemtab);
             contavar++;}
 #line 1275 "sintatico.c"
@@ -1277,8 +1277,8 @@ yyreduce:
   case 13: /* lista_variaveis: T_IDENTIF  */
 #line 96 "sintatico.y"
         {   strcpy(elemtab.nome, atomo);
-            strcpy(elematb.tipo, tipo);
-            strcpy(elematb.end, end);
+            elemtab.tipo = tipo;
+            elemtab.end = contavar;
             inseresimbolo(elemtab);
             contavar++;}
 #line 1285 "sintatico.c"

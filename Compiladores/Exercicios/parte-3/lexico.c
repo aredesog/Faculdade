@@ -931,7 +931,7 @@ YY_RULE_SETUP
 case 29:
 YY_RULE_SETUP
 #line 46 "lexico.l"
-{strcpy(atomo, yytext);return t_NUMERO;}
+{strcpy(atomo, yytext);return T_NUMERO;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP

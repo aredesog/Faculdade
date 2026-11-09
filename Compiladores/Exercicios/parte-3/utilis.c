@@ -8,8 +8,8 @@ void erro_semantico(char *s){
 }
 
 enum {
-    INT = 10;
-    LOG = 20;
+    INT = 10,
+    LOG = 20
 };
 
 #define TAMPILHA 100
@@ -40,18 +40,26 @@ int topotab = 0;
 
 void inseresimbolo(tiptab elem){
     int i;
-    for (i = 0; i < topotab && strcmp(elem.nome, tabsimb[i].nome) != 0; i++);
-    if (i < topotab)
+    for (i = 0; i < topotab && strcmp(elem.nome, tabsimb[i].nome); i--);
+    
+    if (i != -1 )
         erro_semantico("Identificador duplicado");
-    if (topotab == TAMTAB)
-        erro_semantico("Tabela de simbolos cheia");
+
     tabsimb[topotab++] = elem;
 }
 
 int buscasimbolo(char *nome){
     int i;
-    for (i = topotab - 1; i >= 0 && strcmp(nome, tabsimb[i].nome) != 0; i--);
-    if (i < 0)
+    for (i = topotab ; i >= 0 && strcmp(nome, tabsimb[i].nome) != 0; i--);
+    if (i == -1)
         erro_semantico("Identificador nao encontrado");
     return i;
 }
+
+void mostratabela(){
+    printf("%10s %3s %3s\n", "Nome", "Tipo", "End");
+    for(int i = 0; i < topotab; i ++){
+        printf("%10s %3d %3d\n", tabsimb[i].nome, tabsimb[i].tipo, tabsimb[i].end);
+    }
+}
+

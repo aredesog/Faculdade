@@ -43,7 +43,7 @@ NAO               { return T_NAO; }
 "<-"              { return T_ATRIB; }
 
 {identificador}   {strcpy(atomo, yytext);return T_IDENTIF;}
-{numero}          {strcpy(atomo, yytext);return t_NUMERO;}
+{numero}          {strcpy(atomo, yytext);return T_NUMERO;}
 {espaco}          {  }
 {novalinha}       { nlinha++; }
 
