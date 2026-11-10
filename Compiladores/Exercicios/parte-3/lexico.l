@@ -3,6 +3,7 @@
 void erro_lexico(char *);
 int nlinha = 1;
 char atomo[30];
+void yyerror(const char *);
 %}
 
 identificador [a-zA-Z]([a-zA-Z]|[0-9])*
@@ -41,13 +42,19 @@ E                 { return T_E; }
 OU                { return T_OU; }
 NAO               { return T_NAO; }
 "<-"              { return T_ATRIB; }
+"("               { return T_ABRE; }
+")"                { return T_FECHA; }
 
 {identificador}   {strcpy(atomo, yytext);return T_IDENTIF;}
 {numero}          {strcpy(atomo, yytext);return T_NUMERO;}
 {espaco}          {  }
 {novalinha}       { nlinha++; }
 
-.                 { erro_lexico (yytext); }
+.                 {   
+                    char msg[100];
+                    sprintf(msg, "Simbolo %s desconhecido", yytext);
+                    yyerror(msg);
+                  }
 %%
 
 

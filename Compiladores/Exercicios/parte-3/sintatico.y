@@ -12,7 +12,7 @@ extern int nlinha;
 int contavar = 0;
 int rotulo = 0;
 int tipo;
-#define DEBUG(x)
+#define DEBUG(x) x
 
 %}
 
@@ -59,17 +59,22 @@ int tipo;
 %%
 programa
     : cabecalho 
-        { printf("\tINPP\n");}
+        { fprintf(yyout, "\tINPP\n");}
       variaveis 
         { 
             DEBUG(mostratabela());
-            empilha(contavar);
+            empilha(contavar, 'c');
             if(contavar > 0){
                 fprintf(yyout, "\tAMEM\t%d\n", contavar);
             }
         }
       T_INICIO lista_comandos T_FIM
-        { fprintf(yyout, "\tDMEM\tX\n\tFIM\n");}
+        {
+            int conta = desempilha('c');
+            if (conta > 0)
+                fprintf(yyout, "\tDMEM\t%d\n", conta);
+            fprintf(yyout, "\tFIMP\n");
+        }
 
     ;
 
@@ -111,7 +116,9 @@ lista_variaveis
 
 lista_comandos
     : /* vazio */
-    | comando lista_comandos
+    | comando
+        { DEBUG(mostrapilha()); }
+      lista_comandos
     ;
 
 comando
@@ -125,30 +132,37 @@ comando
 leitura
     : T_LEIA T_IDENTIF
         {   int pos = buscasimbolo(atomo);
-            fprintf(yyout, "\tLEIA\n\tARZG\t\n");
+            fprintf(yyout, "\tLEIA\n");
             fprintf(yyout,"\tARZG\t%d\n", tabsimb[pos].end);
             }
     ;
 
 escrita
     : T_ESCREVA expressao
-        { fprintf(yyout, "\tESCR\n");}
+        {   desempilha('t');
+            fprintf(yyout, "\tESCR\n");}
     ;
 
 repeticao
     :   T_ENQTO 
             { 
-                fprintf(yyout,"\tL%dNADA\n", ++rotulo);
-                empilha(rotulo);
+                fprintf(yyout,"L%d\tNADA\n", ++rotulo);
+                empilha(rotulo, 'r');
                 }
         expressao 
         T_FACA
-            { fprintf(yyout,"\tDSVF\tL%d\n", ++rotulo);}
+            {
+                int t = desempilha('t');
+                if (t != LOG)
+                    yyerror("Incompatibilidade de tipo");
+                fprintf(yyout,"\tDSVF\tL%d\n", ++rotulo);
+                empilha(rotulo, 'r');
+            }
         lista_comandos 
         T_FIMENQTO
         { 
-            int y = desempilha();
-            int x = desempilha();
+            int y = desempilha('r');
+            int x = desempilha('r');
             fprintf(yyout, "\tDSVS\tL%d\n", x);
             fprintf(yyout, "L%d\tNADA\n", y);  
         }
@@ -157,19 +171,22 @@ repeticao
 selecao
     : T_SE expressao T_ENTAO 
         { 
-            fprintf(yyout, "\tDSVS\tL%d", ++rotulo);
-            empilha(rotulo);
+            int t = desempilha('t');
+            if (t != LOG)
+                yyerror("Incompatibilidade de tipo");
+            fprintf(yyout, "\tDSVF\tL%d\n", ++rotulo);
+            empilha(rotulo, 'r');
         }
       lista_comandos T_SENAO 
         { 
-            int x = desempilha();
+            int x = desempilha('r');
             fprintf(yyout, "\tDSVS\tL%d\n", ++rotulo);
             fprintf(yyout, "L%d\tNADA\n", x);
-            empilha(rotulo);
+            empilha(rotulo, 'r');
           }
       lista_comandos T_FIMSE
         { 
-            int y =desempilha();
+            int y =desempilha('r');
             fprintf(yyout, "L%d\tNADA\n", y);}
 
     ;
@@ -178,60 +195,81 @@ atribuicao
     : T_IDENTIF
     {
         int pos = buscasimbolo(atomo);
-        empilha(pos);
+        empilha(pos, 'p');
     }
 
         T_ATRIB expressao
         { 
-            int pos = desempilha();
-            fprintf(yyout,"\tARZG\tx\n", tabsimb[pos].end);
+            int t = desempilha('t');
+            int pos = desempilha('p');
+            if(t != tabsimb[pos].tipo)
+                yyerror("Incompatibilidade de tipo");
+            fprintf(yyout,"\tARZG\t%d\n", tabsimb[pos].end);
         }
 
     ;
 
 expressao
     : expressao T_VEZES expressao
-        { fprintf(yyout,"\tMULT\n");}
-
+        {   testaTipo(INT, INT, INT);
+            fprintf(yyout,"\tMULT\n");}
     | expressao T_DIV expressao
-        { fprintf(yyout,"\tDIVI\n");}
+        {   testaTipo(INT, INT, INT);
+            fprintf(yyout,"\tDIVI\n");}
     | expressao T_MAIS expressao
-        { fprintf(yyout,"\tSOMA\n");}
+        {   testaTipo(INT, INT, INT);
+            fprintf(yyout,"\tSOMA\n");}
     | expressao T_MENOS expressao
-        { fprintf(yyout,"\tSUBT\n");}
+        {   testaTipo(INT, INT, INT);
+            fprintf(yyout,"\tSUBT\n");}
     | expressao T_MAIOR expressao
-        { fprintf(yyout,"\tCMMA\n");}
+        {   testaTipo(INT, INT, LOG);
+            fprintf(yyout,"\tCMMA\n");}
     | expressao T_MENOR expressao
-        { fprintf(yyout,"\tCMME\n");}
+        {   testaTipo(INT, INT, LOG);
+            fprintf(yyout,"\tCMME\n");}
     | expressao T_IGUAL expressao
-        { fprintf(yyout,"\tCMIG\n");}
+        {   testaTipo(INT, INT, LOG);
+            fprintf(yyout,"\tCMIG\n");}
     | expressao T_E expressao
-        { fprintf(yyout,"\tCONJ\n");}
+        {   testaTipo(LOG, LOG, LOG);
+            fprintf(yyout,"\tCONJ\n");}
     | expressao T_OU expressao
-        { fprintf(yyout,"\tDISJ\n");}
+        {   testaTipo(LOG, LOG, LOG);
+            fprintf(yyout,"\tDISJ\n");}
     | termo
     ;
 
 termo
     : T_IDENTIF
         {   int pos = buscasimbolo(atomo);
-            fprintf(yyout,"\tCRVG\n", tabsimb[pos].end);}
+            fprintf(yyout,"\tCRVG\t%d\n", tabsimb[pos].end);
+            empilha(tabsimb[pos].tipo, 't');}
     | T_NUMERO
-        { fprintf(yyout,"\tCRCT\n", atomo);}
+        {   fprintf(yyout,"\tCRCT\t%s\n", atomo);
+            empilha(INT, 't');}
     | T_V
-        { fprintf(yyout,"\tCRCT\n");}
+        {   fprintf(yyout,"\tCRCT\t1\n");
+            empilha(LOG, 't');}
     | T_F
-        { fprintf(yyout,"\tCRCT\n");}
+        {   fprintf(yyout,"\tCRCT\t0\n");
+            empilha(LOG, 't');}
     | T_NAO termo
-        { fprintf(yyout,"\tNEGA\n");}
+        {   int t = desempilha('t');
+            if (t != LOG)
+                yyerror("Incompatibilidade de tipo");
+            fprintf(yyout,"\tNEGA\n");
+            empilha(LOG, 't');}
     | T_ABRE expressao T_FECHA
-    ; 
+    ;
 
 %%
 
 void yyerror(const char *mensagem)
 {
-    fprintf(stderr, "Erro Interno: %s\n", mensagem);
+    fprintf(stderr, "Erro na linha %d,\n", nlinha );
+    fprintf(stderr, "%s\n\n", mensagem );
+    exit(30);
 }
 
 static const char *nome_token(yysymbol_kind_t token)

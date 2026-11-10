@@ -4,7 +4,7 @@ inicio
     leia a 
     leia b 
     se a > b
-        entao esecreva a 
+        entao escreva a 
         senao escreva b
     fimse
 fimprograma
